@@ -61,3 +61,24 @@ def login():
             return redirect("/dashboard")
 
     return render_template("login.html")
+
+@app.route("/crear_usuario", methods=["GET","POST"])
+def crear_usuario():
+    if "user" not in session or session["rol"] != "admin":
+        return redirect("/dashboard")
+
+    if request.method == "POST":
+        usuario = request.form["usuario"]
+        password = generate_password_hash(request.form["password"])
+        rol = request.form["rol"]
+
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO usuarios (usuario,password,rol) VALUES (?,?,?)",
+                       (usuario,password,rol))
+        conn.commit()
+        conn.close()
+
+        return redirect("/dashboard")
+
+    return render_template("crear_usuario.html")
