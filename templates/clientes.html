@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+<div class="sidebar">
+<a href="/dashboard">Inicio</a>
+<a href="/clientes">Clientes</a>
+<a href="/logout">Cerrar sesión</a>
+</div>
+
+<div class="content">
+<h2>Registrar Cliente</h2>
+
+<form method="POST">
+<input name="nombre" placeholder="Nombre completo">
+<input name="contrato" placeholder="Número de contrato">
+<input name="correo" placeholder="Correo">
+<input name="telefono" placeholder="Teléfono">
+<input name="direccion" placeholder="Dirección">
+<button>Guardar</button>
+</form>
+
+<h3>Lista de Clientes</h3>
+
+<table>
+<tr>
+<th>Nombre</th>
+<th>Contrato</th>
+<th>Fecha</th>
+<th>Acción</th>
+</tr>
+
+{% for c in clientes %}
+<tr>
+<td>{{c[1]}}</td>
+<td>{{c[2]}}</td>
+<td>{{c[6]}}</td>
+<td><a href="/editar/{{c[0]}}">Editar</a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+</body>
+</html>

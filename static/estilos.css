@@ -1,0 +1,49 @@
+body {margin:0;font-family:Arial;}
+.sidebar {
+width:200px;
+height:100vh;
+background:#111827;
+position:fixed;
+padding-top:20px;
+}
+.sidebar a {
+display:block;
+color:white;
+padding:15px;
+text-decoration:none;
+}
+.sidebar a:hover {background:#1f2937;}
+
+.content {
+margin-left:220px;
+padding:30px;
+}
+
+.login-body {
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#f4f6f9;
+}
+
+.login-box {
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+input {
+display:block;
+margin-bottom:10px;
+padding:10px;
+width:100%;
+}
+
+button {
+padding:10px;
+background:#004aad;
+color:white;
+border:none;
+}
