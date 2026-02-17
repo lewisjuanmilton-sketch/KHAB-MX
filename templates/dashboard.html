@@ -10,6 +10,10 @@
 <a href="/logout">Cerrar sesión</a>
 </div>
 
+{% if session["rol"] == "admin" %}
+<a href="/crear_usuario">Crear Usuario</a>
+{% endif %}
+
 <div class="content">
 <h1>Bienvenido a KHAB</h1>
 </div>
