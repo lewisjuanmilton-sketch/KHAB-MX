@@ -82,3 +82,9 @@ def crear_usuario():
         return redirect("/dashboard")
 
     return render_template("crear_usuario.html")
+
+@app.route("/dashboard")
+def dashboard():
+    if "user" not in session:
+        return redirect("/")
+    return render_template("dashboard.html")
