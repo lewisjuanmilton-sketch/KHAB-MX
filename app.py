@@ -42,3 +42,22 @@ def init_db():
     conn.close()
 
 init_db()
+
+@app.route("/", methods=["GET","POST"])
+def login():
+    if request.method == "POST":
+        user = request.form["usuario"]
+        password = request.form["password"]
+
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM usuarios WHERE usuario=?", (user,))
+        usuario = cursor.fetchone()
+        conn.close()
+
+        if usuario and check_password_hash(usuario[2], password):
+            session["user"] = usuario[1]
+            session["rol"] = usuario[3]
+            return redirect("/dashboard")
+
+    return render_template("login.html")
