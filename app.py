@@ -101,3 +101,8 @@ def clientes():
     conn.close()
 
     return render_template("clientes.html", clientes=clientes)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
