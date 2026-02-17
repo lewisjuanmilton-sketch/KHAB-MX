@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+<div class="sidebar">
+<a href="/dashboard">Inicio</a>
+<a href="/clientes">Clientes</a>
+<a href="/crear_usuario">Crear Usuario</a>
+<a href="/logout">Cerrar sesión</a>
+</div>
+
+<div class="content">
+<h2>Crear Nuevo Usuario</h2>
+
+<form method="POST">
+<input name="usuario" placeholder="Usuario" required>
+<input name="password" type="password" placeholder="Contraseña" required>
+
+<select name="rol">
+<option value="vendedor">Vendedor</option>
+<option value="admin">Administrador</option>
+</select>
+
+<button>Crear Usuario</button>
+</form>
+</div>
+</body>
+</html>
