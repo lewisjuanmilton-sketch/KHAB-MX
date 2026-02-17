@@ -88,3 +88,16 @@ def dashboard():
     if "user" not in session:
         return redirect("/")
     return render_template("dashboard.html")
+
+@app.route("/clientes")
+def clientes():
+    if "user" not in session:
+        return redirect("/")
+
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM clientes ORDER BY id DESC")
+    clientes = cursor.fetchall()
+    conn.close()
+
+    return render_template("clientes.html", clientes=clientes)
